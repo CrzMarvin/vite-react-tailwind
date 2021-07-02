@@ -1,16 +1,10 @@
-//  https://www.youtube.com/watch?v=5_BPDve5-3M
-import React, { useRef, useEffect } from 'react'
+// https://www.youtube.com/watch?v=5_BPDve5-3M
+import React from 'react'
 import logo from './logo.svg'
-import astronaut from '../assets/img/astro.png'
+import astronaut from '../../assets/img/astro.png'
 
 function App() {
-  const buttonRef = useRef(null)
-  useEffect(() => {
-    const button = buttonRef.current;
-    if (button) {
-      button.focus();
-    }
-  }, []);
+
   return (
     <div className="bg-gray-300 h-screen">
       <div className="bg-gray-100 grid lg:grid-cols-2 xl:grid-cols-5">
@@ -23,11 +17,11 @@ function App() {
             <span className="text-indigo-500">Universe!</span>
           </h1>
           <p className="mt-2 text-gray-600 font-light">Aute est est non labore occaecat id elit nostrud enim ut minim. Consequat mollit nulla qui aute Lorem voluptate anim reprehenderit duis id commodo aute aute nulla. Deserunt id reprehenderit tempor cupidatat aliqua consectetur excepteur veniam. Ut aliquip non dolor nisi velit minim mollit consequat incididunt aliquip ex reprehenderit.</p>
-          <div className="mt-4 space-x-1">
-            <button ref={buttonRef} className="btn btn-primary" >launch rocket</button>
-            <a className="btn btn-secondary" href="#">launch rocket</a>
+          <div className="mt-4">
+            <a className="inline-block rounded-md bg-indigo-600 py-3 shadow-lg px-4 text-white uppercase tracking-wide font-semibold cursor-pointer text-sm">
+              launch rocket
+            </a>
           </div>
-    
         </div>
         <div className="hidden lg:block relative xl:col-span-3">
           <img src={astronaut} className="absolute inset-0 w-full h-full object-cover object-center" />

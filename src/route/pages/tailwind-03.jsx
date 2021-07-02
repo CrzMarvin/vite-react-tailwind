@@ -23,11 +23,9 @@ function App() {
             <span className="text-indigo-500">Universe!</span>
           </h1>
           <p className="mt-2 text-gray-600 font-light">Aute est est non labore occaecat id elit nostrud enim ut minim. Consequat mollit nulla qui aute Lorem voluptate anim reprehenderit duis id commodo aute aute nulla. Deserunt id reprehenderit tempor cupidatat aliqua consectetur excepteur veniam. Ut aliquip non dolor nisi velit minim mollit consequat incididunt aliquip ex reprehenderit.</p>
-          <div className="mt-4 space-x-1">
-            <button ref={buttonRef} className="btn btn-primary" >launch rocket</button>
-            <a className="btn btn-secondary" href="#">launch rocket</a>
-          </div>
-    
+          <button ref={buttonRef} className="mt-4 rounded-md bg-indigo-600 py-3 shadow-lg px-4 text-white uppercase tracking-wide font-semibold cursor-pointer text-sm hover:bg-indigo-500 hover:translate-x-1 transform transition focus:outline-none focus:ring active:bg-indigo-600" >
+            launch rocket
+          </button>
         </div>
         <div className="hidden lg:block relative xl:col-span-3">
           <img src={astronaut} className="absolute inset-0 w-full h-full object-cover object-center" />

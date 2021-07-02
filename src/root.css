@@ -1,5 +1,7 @@
 @import 'tailwindcss/base';
 
 @import 'tailwindcss/components';
+@import './assets/css/components.css';
 
+/* utilities layer should be placed at last */
 @import 'tailwindcss/utilities';

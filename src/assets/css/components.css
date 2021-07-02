@@ -1,0 +1,9 @@
+.btn {
+  @apply inline-block rounded-md py-3  px-4 shadow-lg uppercase tracking-wide font-semibold cursor-pointer text-sm sm:text-base focus:outline-none focus:ring;
+}
+.btn-primary {
+  @apply bg-indigo-600 py-3 shadow-lg hover:bg-indigo-500 hover:-translate-y-0.5 transform transition  active:bg-indigo-600 text-white;
+}
+.btn-secondary {
+  @apply bg-gray-300 py-3 shadow-lg hover:bg-gray-200  active:bg-gray-300;
+}
