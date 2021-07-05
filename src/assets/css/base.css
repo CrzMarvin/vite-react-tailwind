@@ -1,0 +1,8 @@
+/*  
+  fix shake 
+  https://stackoverflow.com/questions/15464055/css-transition-effect-makes-image-blurry-moves-image-1px-in-chrome 
+*/
+.no-shake {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1, 1);
+}
