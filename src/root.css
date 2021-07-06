@@ -1,8 +1,8 @@
-@import 'tailwindcss/base';
-@import './assets/css/base.css';
+@import "tailwindcss/base";
+@import "./assets/css/base.css";
 
-@import 'tailwindcss/components';
-@import './assets/css/components.css';
+@import "tailwindcss/components";
+@import "./assets/css/components.css";
 
 /* utilities layer should be placed at last */
-@import 'tailwindcss/utilities';
+@import "tailwindcss/utilities";
