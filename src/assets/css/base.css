@@ -6,3 +6,32 @@
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0) scale(1, 1);
 }
+:root {
+  --color-text-base: #0ea5e9;
+  --color-text-muted: #c9d9e0;
+  --color-text-inverted: #064968;
+  --color-fill: #014564;
+  --color-button-accent: #ffffff;
+  --color-button-accent-hover: #ececec;
+  --color-button-muted: #57aad1;
+}
+
+.theme-sky {
+  --color-text-base: #075985;
+  --color-text-muted: #bae6fd;
+  --color-text-inverted: #064968;
+  --color-fill: #f0f9ff;
+  --color-button-accent: #38bdf8;
+  --color-button-accent-hover: #7dd3fc;
+  --color-button-muted: #bae6fd;
+}
+
+.theme-teal {
+  --color-text-base: #134e4a;
+  --color-text-muted: #99f6e4;
+  --color-text-inverted: #0d9488;
+  --color-fill: #f0fdfa;
+  --color-button-accent: #14b8a6;
+  --color-button-accent-hover: #2dd4bf;
+  --color-button-muted: #99f6e4;
+}
