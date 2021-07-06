@@ -50,7 +50,7 @@ const vocationCitiesData = [
 
 function App() {
   return (
-    <div className="bg-DI py-5 space-y-12">
+    <div className="py-5 bg-DI space-y-12">
       {vocationCitiesData.map((city) => (
         <VocationCard key={city?.name} {...city} />
       ))}

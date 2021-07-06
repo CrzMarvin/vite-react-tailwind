@@ -12,15 +12,15 @@ function App() {
     }
   }, []);
   return (
-    <div className="bg-gray-300 h-screen">
-      <div className="bg-gray-100 grid lg:grid-cols-2 xl:grid-cols-5">
-        <div className="px-8 py-12 m-auto max-w-md sm:max-w-xl lg:px-12 lg:py-20 xl:col-span-2">
+    <div className="h-screen bg-gray-300">
+      <div className="grid bg-gray-100 lg:grid-cols-2 xl:grid-cols-5">
+        <div className="m-auto px-8 py-12 max-w-md sm:max-w-xl lg:px-12 lg:py-20 xl:col-span-2">
           <img src={logo} className="h-20" />
           <img
             src={astronaut}
-            className="w-full mt-2 rounded-lg shadow-xl sm:mt-8 object-cover object-center lg:hidden"
+            className="mt-2 w-full rounded-lg shadow-xl object-cover object-center sm:mt-8 lg:hidden"
           />
-          <h1 className="mt-2 text-2xl font-bold text-gray-900 lg:text-4xl">
+          <h1 className="mt-2 text-gray-900 text-2xl font-bold lg:text-4xl">
             Morning
             <br className="hidden lg:inline" />
             <span className="text-indigo-500">Universe!</span>
@@ -42,7 +42,7 @@ function App() {
             </a>
           </div>
         </div>
-        <div className="hidden lg:block relative xl:col-span-3">
+        <div className="relative hidden lg:block xl:col-span-3">
           <img
             src={astronaut}
             className="absolute inset-0 w-full h-full object-cover object-center"
