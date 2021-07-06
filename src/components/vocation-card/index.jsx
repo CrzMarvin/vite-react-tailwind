@@ -21,7 +21,7 @@ export default ({ name, subtitle, imgSrc, description }) => {
           >
             {subtitle}
           </a>
-          <p className="mt-2 text-gray-500">{description?.slice(0, 100)}</p>
+          <p className="mt-2 text-gray-500 truncate max-w-sm h-16">{description}</p>
         </div>
       </div>
     </div>

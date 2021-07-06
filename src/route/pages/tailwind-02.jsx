@@ -1,7 +1,7 @@
 // https://www.youtube.com/watch?v=5_BPDve5-3M
-import React from "react";
-import logo from "./logo.svg";
-import astronaut from "../../assets/img/astro.png";
+import React from 'react';
+import logo from './logo.svg';
+import astronaut from '../../assets/img/astro.png';
 
 function App() {
   return (
