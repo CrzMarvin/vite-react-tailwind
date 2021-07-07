@@ -1,6 +1,6 @@
 //  https://www.youtube.com/watch?v=5_BPDve5-3M
 import React, { useRef, useEffect } from "react";
-import logo from "./logo.svg";
+import logo from "../logo.svg";
 import astronaut from "../../assets/img/astro.png";
 
 function App() {

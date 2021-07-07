@@ -1,9 +1,7 @@
 //  https://www.youtube.com/watch?v=5_BPDve5-3M
 import React, { useRef, useEffect } from 'react';
 import VocationCard from '@components/vocation-card';
-
-import logo from './logo.svg';
-import astronaut from '@assets/img/astro.png';
+import Home from './pages/tailwind-04';
 import MoscowImg from '../assets/img/Moscow.png';
 import NaplesImg from '../assets/img/Naples.png';
 import NewYorkImg from '../assets/img/NewYork.png';
@@ -53,6 +51,12 @@ const vocationCitiesData = [
 function App() {
   return (
     <>
+      <Home />
+      <div className="grid gap-y-4 grid-cols-2 py-8 bg-DI">
+        {vocationCitiesData.map((city) => (
+          <VocationCard key={city?.name} {...city} />
+        ))}
+      </div>
       {/* this is the default theme */}
       <article className="bg-skin-fill my-3 p-8">
         <h1 className="text-skin-base text-2xl font-bold">
@@ -152,11 +156,6 @@ function App() {
           </a>
         </div>
       </article>
-      <div className="grid gap-y-4 grid-cols-2 py-8 bg-DI">
-        {vocationCitiesData.map((city) => (
-          <VocationCard key={city?.name} {...city} />
-        ))}
-      </div>
     </>
   );
 }
