@@ -1,0 +1,36 @@
+
+h1 {
+  @apply text-2xl font-bold text-indigo-800 mb-7;
+}
+h2 {
+  @apply text-xl font-bold;
+}
+h3 {
+  @apply text-lg;
+}
+a {
+  @apply text-blue-600 underline;
+}
+
+table {
+  @apply my-8 w-full;
+}
+
+table thead {
+  @apply bg-DI-light text-left;
+}
+
+table thead th {
+  @apply p-3;
+}
+
+table td {
+  padding: 9px;
+}
+table tr:nth-child(2n){
+  @apply bg-gray-100;
+}
+
+blockquote {
+  @apply border-l-4 border-DI-dark pl-4;
+}

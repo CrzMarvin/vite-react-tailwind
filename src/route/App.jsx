@@ -2,6 +2,7 @@
 import React, { useRef, useEffect } from 'react';
 import VocationCard from '@components/vocation-card';
 import Home from './pages/tailwind-04';
+import MdxContainer from './pages/mdx';
 import MoscowImg from '../assets/img/Moscow.png';
 import NaplesImg from '../assets/img/Naples.png';
 import NewYorkImg from '../assets/img/NewYork.png';
@@ -156,6 +157,8 @@ function App() {
           </a>
         </div>
       </article>
+      <MdxContainer />
+      <h2> This is a default title!</h2>
     </>
   );
 }
