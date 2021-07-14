@@ -3,6 +3,10 @@ import React, { useRef, useEffect } from 'react';
 import VocationCard from '@components/vocation-card';
 import Home from './pages/tailwind-04';
 import MdxContainer from './pages/mdx';
+import { MDXProvider } from '@mdx-js/react'
+import Text from '@components/mdx-components/text'
+import Code from '@components/mdx-components/code'
+
 import MoscowImg from '../assets/img/Moscow.png';
 import NaplesImg from '../assets/img/Naples.png';
 import NewYorkImg from '../assets/img/NewYork.png';
@@ -163,4 +167,22 @@ function App() {
   );
 }
 
-export default App;
+
+
+const components = {
+  // h1: Heading.H1,
+  // h2: Heading.H2,
+  // …
+  p: Text,
+  code: Code,
+  // inlineCode: Code
+}
+const AppWithMDX = (props) => {
+  return (
+    <MDXProvider components={components}>
+      <App {...props} />
+    </MDXProvider>
+  )
+}
+
+export default AppWithMDX;

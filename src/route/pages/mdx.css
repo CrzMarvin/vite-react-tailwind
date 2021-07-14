@@ -34,3 +34,7 @@ table tr:nth-child(2n){
 blockquote {
   @apply border-l-4 border-DI-dark pl-4;
 }
+
+pre {
+  @apply m-2 rounded;
+}

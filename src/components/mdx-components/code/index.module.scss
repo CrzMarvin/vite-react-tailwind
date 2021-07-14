@@ -1,0 +1,11 @@
+.editor {
+  pre {
+    @apply rounded;
+    font-family: "JetBrains Mono"!important;
+    font-size: 14px!important;
+  }
+  pre code {
+    font-family: "JetBrains Mono"!important;
+    font-size: 14px!important;
+  }
+}

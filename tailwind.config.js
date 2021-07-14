@@ -30,6 +30,17 @@ module.exports = {
       },
       fontFamily: {
         headline: "Poppins sans-serif", // font-headline
+        mono: [
+          '"JetBrains Mono"',
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          '"Liberation Mono"',
+          '"Courier New"',
+          "monospace",
+        ],
       },
     },
   },

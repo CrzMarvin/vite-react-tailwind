@@ -35,3 +35,8 @@
   --color-button-accent-hover: #2dd4bf;
   --color-button-muted: #99f6e4;
 }
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/JetBrainsMono.woff2") format("woff2"),
+}
