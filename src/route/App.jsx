@@ -6,7 +6,7 @@ import {
   Link,
   useLocation
 } from "react-router-dom";
-
+import Home from './pages/Home'
 // Params are placeholders in the URL that begin
 // with a colon, like the `:id` param defined in
 // the route in this example. A similar convention
@@ -21,21 +21,22 @@ export default function ParamsExample() {
 
         <ul>
           <li>
-            <Link to="/netflix">Netflix</Link>
+            <Link to="/home/netflix">Netflix</Link>
           </li>
           <li>
-            <Link to="/zillow-group">Zillow Group</Link>
+            <Link to="/home/zillow-group">Zillow Group</Link>
           </li>
           <li>
-            <Link to="/yahoo">Yahoo</Link>
+            <Link to="/home/yahoo">Yahoo</Link>
           </li>
           <li>
-            <Link to="/modus-create">Modus Create</Link>
+            <Link to="/mdx">Super Markdown</Link>
           </li>
         </ul>
 
         <Switch>
-          <Route path="/:id" children={<Child />} />
+          <Route path="/home/:id" children={<Child />} />
+          <Route path="/mdx" children={<Home />} />
         </Switch>
       </div>
     </Router>
@@ -51,6 +52,11 @@ function Child(props) {
   return (
     <div>
       <h3>ID: {res.id}</h3>
+      <div className="relative h-96 w-[900px] border">
+        <div className="absolute top-3 left-3 w-48 h-48 rounded-full bg-blue-400 mix-blend-soft-light animate-blob filter blur-xl "></div>
+        <div className="absolute top-3 left-24 w-52 h-52 rounded-full bg-yellow-400 mix-blend-soft-light animate-blob filter blur-xl animation-delay-2000"></div>
+        <div className="absolute top-10 left-16 w-40 h-40 rounded-full bg-green-400 mix-blend-soft-light animate-blob filter blur-2xl animation-delay-5000"></div>
+      </div>
     </div>
   );
 }

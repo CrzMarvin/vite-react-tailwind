@@ -7,12 +7,12 @@ import { MDXProvider } from '@mdx-js/react'
 import Text from '@components/mdx-components/text'
 import Code from '@components/mdx-components/code'
 
-import MoscowImg from '../assets/img/Moscow.png';
-import NaplesImg from '../assets/img/Naples.png';
-import NewYorkImg from '../assets/img/NewYork.png';
-import TokyoImg from '../assets/img/Tokyo.png';
-import ParisImg from '../assets/img/Paris.png';
-import LondonImg from '../assets/img/London.png';
+import MoscowImg from '@img/Moscow.png';
+import NaplesImg from '@img/Naples.png';
+import NewYorkImg from '@img/NewYork.png';
+import TokyoImg from '@img/Tokyo.png';
+import ParisImg from '@img/Paris.png';
+import LondonImg from '@img/London.png';
 
 const vocationCitiesData = [
   {

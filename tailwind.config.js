@@ -42,6 +42,28 @@ module.exports = {
           "monospace",
         ],
       },
+      animation: {
+        blob: "blob 9s infinite",
+      },
+      keyframes: {
+        blob: {
+          "0%": {
+            transform: "translate(0px, 0px) scale(1)"
+          },
+          "24%": {
+            transform: "translate(2px, 20px) scale(1.1)"
+          },
+          "50%": {
+            transform: "translate(9px, 22px) scale(1)"
+          },
+          "75%": {
+            transform: "translate(9px, -10px) scale(0.9)"
+          },
+          "100%": {
+            transform: "translate(0px, 0px) scale(1)"
+          },
+        }
+      },
     },
   },
   variants: {

@@ -6,3 +6,4 @@
 
 /* utilities layer should be placed at last */
 @import "tailwindcss/utilities";
+@import "./assets/css/utilities.css";
