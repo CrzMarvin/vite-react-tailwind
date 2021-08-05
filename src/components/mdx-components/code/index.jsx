@@ -1,9 +1,11 @@
 import React, { useMemo, useState } from "react";
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { jsx } from 'react-syntax-highlighter/dist/esm/languages/prism';
+import { jsx, bash, python } from 'react-syntax-highlighter/dist/esm/languages/prism';
 import { vscDarkPlus, prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 SyntaxHighlighter.registerLanguage('jsx', jsx);
+SyntaxHighlighter.registerLanguage('bash', bash);
+SyntaxHighlighter.registerLanguage('python', python);
 // SyntaxHighlighter.registerLanguage('jsx', jsx);
 
 
@@ -21,13 +23,13 @@ const CodeRender = (props) => {
   const currentTheme = useMemo(
     () => isDarkMode ? vscDarkPlus : prism
   ,[isDarkMode])
-  const hitColor = isDarkMode ? 'text-blue-50' : 'text-blue-900'
+  const hintColor = isDarkMode ? 'text-blue-50' : 'text-blue-900'
   return (
   <div className={`font-mono w-full ${editor} relative`} onClick={e => setDarkMode(!isDarkMode)}>
     <SyntaxHighlighter language={codeLanguage} style={currentTheme} showLineNumbers={false} >
       {codeString}
     </SyntaxHighlighter>
-    <p className={`absolute right-1 bottom-0 ${hitColor} italic opacity-50 hover:opacity-80 `}><em>{`</>`}&nbsp;{codeLanguage}</em></p>
+    <p className={`absolute right-1 bottom-0 ${hintColor} italic opacity-50 hover:opacity-80 `}><em>{`</>`}&nbsp;{codeLanguage}</em></p>
   </div>
   );
 };
