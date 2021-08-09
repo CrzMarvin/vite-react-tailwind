@@ -49,8 +49,6 @@ function Child(props) {
   // We can use the `useLocation` hook here to access
   // the dynamic pieces of the URL.
   let res = useLocation();
-  console.log('res', res);
-  console.log('props', props);
   return (
     <div>
       <h3>ID: {res.id}</h3>
