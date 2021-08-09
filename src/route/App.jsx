@@ -4,9 +4,10 @@ import {
   Switch,
   Route,
   Link,
-  useLocation
+  useLocation,
 } from "react-router-dom";
 import Home from './pages/Home'
+import AudioPlayer from "@components/audio-player";
 // Params are placeholders in the URL that begin
 // with a colon, like the `:id` param defined in
 // the route in this example. A similar convention
@@ -38,6 +39,7 @@ export default function ParamsExample() {
           <Route path="/home/:id" children={<Child />} />
           <Route path="/mdx" children={<Home />} />
         </Switch>
+        <AudioPlayer />
       </div>
     </Router>
   );
