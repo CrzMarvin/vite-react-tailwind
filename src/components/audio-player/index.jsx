@@ -3,6 +3,14 @@ import { Howl } from 'howler';
 import PlayPause from './components/playPause';
 import Next from './components/next';
 
+import { generateLoopListNodes } from '../../utils'
+
+const formatTime= (secs) => {
+  var minutes = Math.floor(secs / 60) || 0;
+  var seconds = (secs - minutes * 60) || 0;
+  return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+}
+
 const STATIC_HOST = 'https://dongshanfzy.com/static/cdn/audio/';
 
 const playList = [
@@ -24,19 +32,43 @@ const playList = [
   },
 ];
 
-
-
-
 const PlayerStates = ['INIT', 'PLAYING', 'PAUSE', 'STOP', 'ERROR', 'END'];
+
+
+const defaultOrderArray = Array.from(playList, (_, i) => i)
+const playNodeListHeader = generateLoopListNodes(defaultOrderArray)
+let currentPlayNode = playNodeListHeader;
 
 export default (props) => {
   const playRef = useRef(null);
+  const progressRef = useRef(null);
   const [playerState, setPlayerState] = useState('INIT');
-  const [songIdx, setSongIdx] = useState(0);
+  const [songIdx, setSongIdx] = useState(currentPlayNode.val);
+  const [autoPlayNext, setAutoplayNext] = useState(true);
+  const [duration, setDuration] = useState(0);
+  const [progress, setProgress] = useState(0);
   useEffect(() => {
     loadSong(0)
   }, []);
 
+  const updateProgress = (player) => {
+    const progressDom = progressRef.current;
+    if (player?.playing() && progressDom) {
+      // requestAnimationFrame(() => updateProgress(player));
+      const seek = player.seek();
+      const duration = player.duration();
+      const percent = Math.round(seek / duration * 10000) / 100;
+      progressDom.style.width = `${percent}%`
+      setTimeout(() => {
+        updateProgress(player)
+      }, 200);
+    }
+  }
+  const updateSongId = () => {
+    currentPlayNode = currentPlayNode.next
+    setSongIdx(currentPlayNode.val)
+    return currentPlayNode.val
+  }
   const loadSong = (id) => {
     const { name, filename } = playList[id]
     const player = new Howl({
@@ -44,6 +76,12 @@ export default (props) => {
       html5: true,
       onplay: function (id) {
         setPlayerState('PLAYING');
+        const duration = player.duration();
+        setDuration(Math.round(duration))
+        updateProgress(player, duration)
+      },
+      onseek: function (seek) {
+        updateProgress(seek)
       },
       onpause: function () {
         setPlayerState('PAUSE');
@@ -53,8 +91,12 @@ export default (props) => {
       },
       onend: function () {
         setPlayerState('END');
+        if (autoPlayNext) {
+          handleNext();
+        }
       },
     });
+
     playRef.current = player;
     return player;
   }
@@ -70,27 +112,38 @@ export default (props) => {
     }
   };
   const handleNext = () => {
-    const isLastSong = songIdx === playList.length - 1 
-    const nextSongIdx = isLastSong ? 0 : songIdx + 1;
-    console.log('nextSongIdx', nextSongIdx);
-    setSongIdx(nextSongIdx)
+    const nextSongIdx = currentPlayNode.next.val;
     const prePlayer = playRef.current;
     if (prePlayer) {
       prePlayer.stop()
     }
     const player = loadSong(nextSongIdx)
     player.play();
+    updateSongId();
   };
-  console.log('playerState', playerState);
+  const currentSong = playList[songIdx]
   return (
-    <div className="fixed right-3 top-3 flex w-32 h-12 bg-gray-500 rounded shadow-md">
-      <PlayPause
-        className="w-12 h-12 cursor-pointer"
-        color="white"
-        isPlay={playerState === 'PLAYING'}
-        onClick={handlePlay}
-      />
-      <Next onClick={handleNext} color="white" />
+    <div className="fixed right-3 top-3  w-64 h-16 bg-gray-500 rounded shadow-md">
+      <div className="flex items-center">
+        <PlayPause
+          className="w-10 h-10 cursor-pointer"
+          color="white"
+          isPlay={playerState === 'PLAYING'}
+          onClick={handlePlay}
+        />
+        <Next onClick={handleNext} color="white" />
+        <p className="text-gray-50" >{currentSong.name} </p>
+      </div>
+      <div className="relative w-11/12 mx-auto h-1 bg-gray-400 box-border">
+        <div 
+          ref={progressRef} 
+          className="absolute h-full bg-gradient-to-r from-green-400 to-blue-500 " 
+          style={{ transition: 'width 0.2s linear', transitionDelay: 0 }}
+        >
+          <div className="absolute h-[8px] w-[2px] bg-white right-0 top-[-2px]"></div>
+        </div>
+        <p className="absolute right-[-5px] text-gray-50 text-xs top-1" >{formatTime(duration)}</p>
+      </div>
     </div>
   );
 };

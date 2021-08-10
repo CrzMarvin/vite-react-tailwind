@@ -14,7 +14,7 @@ const IconNext = (props) => {
       setIsMouseDown(false)
     }
   }, [isMouseDown])
-  const className = isMouseDown ? "w-12 h-12 cursor-pointer translate-y-[1px] transform" : "w-12 h-12 cursor-pointer"
+  const className = isMouseDown ? "w-10 h-10 cursor-pointer translate-y-[1px] transform" : "w-10 h-10 cursor-pointer"
   return (
     <svg
       className={className}
