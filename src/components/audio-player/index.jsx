@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Howl } from 'howler';
 import PlayPause from './components/playPause';
 import Next from './components/next';
+import Particle from './components/particle';
 
 import { generateLoopListNodes } from '../../utils'
 
@@ -39,7 +40,7 @@ const defaultOrderArray = Array.from(playList, (_, i) => i)
 const playNodeListHeader = generateLoopListNodes(defaultOrderArray)
 let currentPlayNode = playNodeListHeader;
 
-export default (props) => {
+const Player = (props) => {
   const playRef = useRef(null);
   const progressRef = useRef(null);
   const [playerState, setPlayerState] = useState('INIT');
@@ -140,10 +141,36 @@ export default (props) => {
           className="absolute h-full bg-gradient-to-r from-green-400 to-blue-500 " 
           style={{ transition: 'width 0.2s linear', transitionDelay: 0 }}
         >
-          <div className="absolute h-[8px] w-[2px] bg-white right-0 top-[-2px]"></div>
+          <div className="absolute h-[8px] w-[2px] bg-white right-0 top-[-2px]">
+            <Particle isPlay={playerState === 'PLAYING'}/>
+          </div>
         </div>
         <p className="absolute right-[-5px] text-gray-50 text-xs top-1" >{formatTime(duration)}</p>
       </div>
     </div>
   );
 };
+
+export default Player;
+
+// export default () => {
+//   const [isPlay, setPlay] = useState(false);
+//   const handlePlay = () => {
+//     setPlay(v => !v)
+//   }
+//   return(
+//     <div className="fixed right-3 top-3  w-64 h-16 bg-gray-500 rounded shadow-md" onClick={handlePlay}>
+//       <div className="relative w-11/12 mx-auto h-1 bg-gray-400 box-border top-3">
+//         <div 
+//           className="relative h-full bg-gradient-to-r from-green-400 to-blue-500 " 
+//           style={{ transition: 'width 0.2s linear', transitionDelay: 0, width: '30%' }}
+//         >
+//           <div className="absolute h-[8px] w-[2px] bg-white right-0 top-[-2px]">
+//           </div>
+
+//         </div>
+//         <p className="absolute right-[-5px] text-gray-50 text-xs top-1" >05:23</p>
+//       </div>
+//     </div>
+//   )
+// }
