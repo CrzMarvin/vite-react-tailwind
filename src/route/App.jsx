@@ -57,6 +57,9 @@ function Child(props) {
         <div className="absolute top-3 left-24 w-52 h-52 rounded-full bg-yellow-400 mix-blend-soft-light animate-blob filter blur-xl animation-delay-2000"></div>
         <div className="absolute top-10 left-16 w-40 h-40 rounded-full bg-green-400 mix-blend-soft-light animate-blob filter blur-2xl animation-delay-5000"></div>
       </div>
+      <div className="w-64 h-32 bg-gray-500 noise">
+
+      </div>
     </div>
   );
 }

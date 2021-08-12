@@ -130,30 +130,33 @@ const Player = (props) => {
   };
   const currentSong = playList[songIdx]
   return (
-    <div className="fixed right-3 top-3  w-64 h-16 bg-gradient-to-tr from-gray-600 to-gray-400 rounded shadow-md opacity-90">
-      <div className="flex items-center">
-        <PlayPause
-          className="w-10 h-10 cursor-pointer"
-          color="white"
-          isPlay={playerState === 'PLAYING'}
-          onClick={handlePlay}
-        />
-        <Next onClick={handleNext} color="white" />
-        <p className="text-gray-50 truncate w-32" >{currentSong.name} </p>
-      </div>
-      <div className="relative w-11/12 mx-auto h-1 bg-gray-400 box-border">
-        <div 
-          ref={progressRef} 
-          className="absolute h-full bg-gradient-to-r from-green-400 to-blue-500 " 
-          style={{ transition: 'width 0.2s linear', transitionDelay: 0 }}
-        >
-          <div 
-            className={`absolute h-[8px] w-[2px] bg-gray-100 right-0 top-[-2px] ${playerState === 'PLAYING' ? 'glory' : ''}`}
-          >
-            <Particle isPlay={playerState === 'PLAYING'}/>
-          </div>
+    <div className="fixed right-3 top-3  w-64 h-16 bg-gradient-to-tr from-gray-600 to-gray-400 rounded shadow-md ">
+      <div className="absolute w-full h-full noise rounded"></div>
+      <div className="relative inset-0 w-full h-full rounded ">
+        <div className="flex items-center">
+          <PlayPause
+            className="w-10 h-10 cursor-pointer"
+            color="white"
+            isPlay={playerState === 'PLAYING'}
+            onClick={handlePlay}
+          />
+          <Next onClick={handleNext} color="white" />
+          <p className="text-gray-50 truncate w-32" >{currentSong.name} </p>
         </div>
-        <p className="absolute right-[-5px] text-gray-50 text-xs top-1 " >{formatTime(duration)}</p>
+        <div className="relative w-11/12 mx-auto h-1 bg-gray-400 box-border">
+          <div 
+            ref={progressRef} 
+            className="absolute h-full bg-gradient-to-r from-green-400 to-blue-500 " 
+            style={{ transition: 'width 0.2s linear', transitionDelay: 0 }}
+          >
+            <div 
+              className={`absolute h-[8px] w-[2px] bg-gray-100 right-0 top-[-2px] ${playerState === 'PLAYING' ? 'glory' : ''}`}
+            >
+              <Particle isPlay={playerState === 'PLAYING'}/>
+            </div>
+          </div>
+          <p className="absolute right-[-5px] text-gray-50 text-xs top-1 " >{formatTime(duration)}</p>
+        </div>
       </div>
     </div>
   );
