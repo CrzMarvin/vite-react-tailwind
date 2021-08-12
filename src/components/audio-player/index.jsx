@@ -6,6 +6,8 @@ import Particle from './components/particle';
 
 import { generateLoopListNodes } from '../../utils'
 
+import './index.scss'
+
 const formatTime= (secs) => {
   var minutes = Math.floor(secs / 60) || 0;
   var seconds = (secs - minutes * 60) || 0;
@@ -18,6 +20,10 @@ const playList = [
   {
     name: 'lofi_girl01',
     filename: 'lofi_girl01.mp3',
+  },
+  {
+    name: 'Re: Stacks  --BonIver',
+    filename: 'Stacks-BonIver.mp3',
   },
   {
     name: '80s_vibe',
@@ -124,7 +130,7 @@ const Player = (props) => {
   };
   const currentSong = playList[songIdx]
   return (
-    <div className="fixed right-3 top-3  w-64 h-16 bg-gray-500 rounded shadow-md">
+    <div className="fixed right-3 top-3  w-64 h-16 bg-gradient-to-tr from-gray-600 to-gray-400 rounded shadow-md opacity-90">
       <div className="flex items-center">
         <PlayPause
           className="w-10 h-10 cursor-pointer"
@@ -133,7 +139,7 @@ const Player = (props) => {
           onClick={handlePlay}
         />
         <Next onClick={handleNext} color="white" />
-        <p className="text-gray-50" >{currentSong.name} </p>
+        <p className="text-gray-50 truncate w-32" >{currentSong.name} </p>
       </div>
       <div className="relative w-11/12 mx-auto h-1 bg-gray-400 box-border">
         <div 
@@ -141,11 +147,13 @@ const Player = (props) => {
           className="absolute h-full bg-gradient-to-r from-green-400 to-blue-500 " 
           style={{ transition: 'width 0.2s linear', transitionDelay: 0 }}
         >
-          <div className="absolute h-[8px] w-[2px] bg-white right-0 top-[-2px]">
+          <div 
+            className={`absolute h-[8px] w-[2px] bg-gray-100 right-0 top-[-2px] ${playerState === 'PLAYING' ? 'glory' : ''}`}
+          >
             <Particle isPlay={playerState === 'PLAYING'}/>
           </div>
         </div>
-        <p className="absolute right-[-5px] text-gray-50 text-xs top-1" >{formatTime(duration)}</p>
+        <p className="absolute right-[-5px] text-gray-50 text-xs top-1 " >{formatTime(duration)}</p>
       </div>
     </div>
   );

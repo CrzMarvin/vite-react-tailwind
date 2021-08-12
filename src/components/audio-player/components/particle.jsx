@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import anime from 'animejs'
-
+import '../index.scss'
 const PARTICLE_NUM = 15;
 const particleArray = Array.from({ length: PARTICLE_NUM }, (_, i) => i)
 
@@ -46,6 +46,8 @@ const Particle = ({ isPlay }) => {
     animation.play();
   }
   return (
+    //  disable particle glory
+    // <div ref={elRef} className="absolute w-[2px] h-[1px] bg-white particleGlory" style={{ top: Math.floor(Math.random() * 8), left: 0 }}>
     <div ref={elRef} className="absolute w-[2px] h-[1px] bg-white" style={{ top: Math.floor(Math.random() * 8), left: 0 }}>
     </div>
   )
